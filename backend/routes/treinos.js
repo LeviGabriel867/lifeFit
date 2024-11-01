@@ -5,8 +5,7 @@ const prisma = new PrismaClient();
 const router = express.Router();
 
 router.post('/', async (request, response) => {
-    const { exercicio, repeticoes, series } = request.body;
-    const { userId } = request.params;
+    const { exercicio, repeticoes, series, userId } = request.body; // Captura userId do corpo da requisição
 
     try {
         const newTreino = await prisma.treino.create({
@@ -14,9 +13,11 @@ router.post('/', async (request, response) => {
         });
         response.status(201).json(newTreino);
     } catch (error) {
+        console.error("Erro ao criar treino:", error); // Log do erro no console
         response.status(500).json({ error: "Erro ao criar o treino." });
     }
 });
+
 
 router.get('/', async (request, response) => {
     const treinos = await prisma.treino.findMany();

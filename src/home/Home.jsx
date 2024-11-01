@@ -15,14 +15,36 @@ const Home = () => {
   }
 
   async function createUsers() {
+    try{
     await Api.post('/usuarios', {
       name: inputName.current.value,
       email: inputEmail.current.value,
     });
     await getUsers(); // Atualiza a lista de usuários após a criação
+    handleCadastro();
+  }catch(error){
+    alert( (error.response?.data?.msg || error.message)+". Faça login");
+      console.error("Erro ao criar usuário:", error); // Para depuração
+  }
+  }
+  
+
+
+  
+  async function loginUsers() {
+    try{
+    await Api.post('/usuarios/login', {
+      email: inputEmail.current.value
+    });
+    navigate('/cadastro', {state:{users}});
+  }catch(error){
+    alert( (error.response?.data?.msg || error.message)+". Faça login");
+      console.error("Erro ao criar usuário:", error); // Para depuração
+  }
   }
 
   useEffect(() => {
+
     getUsers(); // Carrega os usuários ao carregar a página
   }, []);
 
@@ -42,12 +64,12 @@ const Home = () => {
             id="button1"
             onClick={async () => {
               await createUsers();
-              handleCadastro();
+              
             }}
           >
             Cadastrar
           </button>
-          <button type="button" id="button2">
+          <button type="button" id="button2" onClick={async()=> {await loginUsers()}}>
             Login
           </button>
         </div>
