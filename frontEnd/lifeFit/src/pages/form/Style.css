@@ -1,0 +1,116 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0a0f10, #061013 30%, #0a1f1c 100%);
+    font-family: 'Orbitron', sans-serif;
+    color: #fff
+}
+
+.form{
+    background: #121212;
+    border: 0.4vw solid #0fffc8;
+    border-radius: 1.5vw;
+    padding: 2vw 3vw;
+    box-shadow: 0 0 2vw rgba( 0, 255,200, 0.6); /*efeito de luz*/
+    max-width: 40vw;
+    width: 100%;
+    text-align: center;
+}
+
+.form h1{
+    font-size: 1.8rem;
+    color: #0fffc8;
+    margin-bottom: 2vw;
+}
+
+.form label{
+    display: block;
+    margin: 1vw 0 0.5vw;
+    font-size: 1rem;
+    text-align: left;
+    color: #fff;
+}
+.form input{
+    width: 100%;
+    padding: 0.6vw;
+    border: 0.1vw solid #0fffc8;
+    border-radius: 0.5vw;
+    background-color: #1f1f1f;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: inset 0 0 5px rgba(0, 255, 200, 0.3);
+}
+.form button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #0fffc8;
+    color: #121212;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 200, 0.6);
+    transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+    background-color: #08e6b5;
+}
+.text{
+    color: rgb(174, 174, 247);
+    text-decoration: none;
+}
+
+@media (max-width: 768px){
+    .form{
+        padding: 5vw;
+        max-width: 80vw;
+    }
+    .form h1 {
+        font-size: 1.5rem;
+    }
+    .form label{
+        margin: 2vw 0 1vw;
+        font-size: 0.9rem;
+    }
+    .form input{
+        padding: 1vw;
+        font-size: 0.9rem;
+    }
+    .form button{
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form {
+        padding: 6vw;
+        border-radius: 2vw;
+    }
+
+    .form h1 {
+        font-size: 1.2rem;
+    }
+
+    .form label {
+        font-size: 0.8rem;
+    }
+
+    .form input {
+        padding: 1.2vw;
+        font-size: 0.8rem;
+    }
+
+    .form button {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+}
